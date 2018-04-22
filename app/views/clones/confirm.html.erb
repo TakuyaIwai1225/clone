@@ -1,0 +1,13 @@
+<h3>以下の内容でつぶやきます。</h3>
+
+<%= form_with(model: @clone, url: clones_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+
+  <p>内容:<%= @clone.content %></p>
+  <%= form.submit  "つぶやく" %>
+<% end %>
+
+<%= form_with(model: @clone, url: new_clone_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>

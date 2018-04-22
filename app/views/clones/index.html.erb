@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/clones.scss">
+    <title>つぶやき一覧</title>
+  </head>
+  <body>   
+    <div class="container">
+      <h1>つぶやき一覧</h1>
+        <p><%= notice %></p>
+      
+      <table>
+        <tr>
+          <th>内容</th></th>
+        </tr>
+      
+      <% @clones.each do |clone| %>
+        <tr>
+          <td><%= clone.content %></td>
+          <td class="btn"><%= link_to "[編集]", edit_clone_path(clone.id) %></td>
+          <td class="btn"><%= link_to '[削除]', clone_path(clone.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+        </tr>
+      <% end %>
+      </table>
+  
+  
+  
+      <%= link_to 'つぶやく', new_clone_path %>
+      
+  <footer class="footer">
+    <p>Copyright © 2018 CLONES INC All RIGHTS RESERVED.</p>
+  </footer>
+  </div>
+  </body>
+</html>
